@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
@@ -13,6 +14,10 @@ const MainLayout = () => {
             </main>
             <WalletModal />
             <Footer></Footer>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
     );
 };

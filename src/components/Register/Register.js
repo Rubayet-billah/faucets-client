@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { AiOutlineGoogle, AiOutlineInstagram, AiFillEyeInvisible, AiFillEye } from 'react-icons/ai'
 import { FaFacebook } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext)
     const [visible, setVisible] = useState(false)
     const { register, handleSubmit } = useForm();
 
     const handleRegister = (data) => {
-        console.log(data)
+        createUser(data.email, data.password)
+            .then(res => {
+                console.log(res.user)
+                toast.success('User signup successful')
+            })
+            .catch(err => console.error(err))
     }
     return (
         <div className='flex justify-center items-center min-h-[80vh]'>
