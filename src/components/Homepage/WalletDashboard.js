@@ -6,8 +6,8 @@ const WalletDashboard = () => {
     const { register, handleSubmit } = useForm();
 
 
-    const handleAction = () => {
-
+    const handleAction = (data) => {
+        console.log(data)
     }
     return (
         <div>
@@ -15,7 +15,7 @@ const WalletDashboard = () => {
 
             <form onSubmit={handleSubmit(handleAction)} className='my-5 md:max-w-2xl' >
                 <label className='text-primary font-bold'>Wallet Address</label> <br />
-                <input type="text" placeholder='Wallet Address...' className='border px-2 py-1 mt-1 mb-3 w-full rounded-sm' />
+                <input type="text" {...register('walletAddress')} placeholder='Wallet Address...' className='border px-2 py-1 mt-1 mb-3 w-full rounded-sm' />
                 <label className='text-primary font-bold'>Request Type</label> <br />
                 <div className='grid grid-cols-2 gap-2'>
                     <input type="text" className='border px-2 py-1 mt-1 w-full rounded-sm bg-gray-100' defaultValue='20 Test Link' />
