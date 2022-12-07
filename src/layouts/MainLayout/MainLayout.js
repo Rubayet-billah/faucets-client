@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div>
             <Header></Header>
-            <main className='container lg:max-w-[1340px] mx-auto'>
+            <main>
                 <Outlet></Outlet>
             </main>
             <WalletModal />

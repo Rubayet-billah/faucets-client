@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillWarning } from 'react-icons/ai'
 import { useForm } from 'react-hook-form'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const WalletDashboard = () => {
+    const { selectedNav } = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
 
 
@@ -11,7 +13,7 @@ const WalletDashboard = () => {
     }
     return (
         <div>
-            <p className='md:flex items-center p-2 rounded-sm bg-secondary '><AiFillWarning className='text-xl text-primary mr-1' />  Your wallet is connected to Ethereum Kovan, so you are requesting Ethereum Kovan Link/ETH.</p>
+            <p className='md:flex items-center p-2 rounded-sm bg-secondary '><AiFillWarning className='text-xl text-primary mr-1' />  Your wallet is connected to<span className='font-bold mx-1'> {selectedNav}</span>, so you are requesting <span className='font-bold mx-1'> {selectedNav}</span> Link/ETH.</p>
 
             <form onSubmit={handleSubmit(handleAction)} className='my-5 md:max-w-2xl' >
                 <label className='text-primary font-bold'>Wallet Address</label> <br />
