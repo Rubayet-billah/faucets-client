@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderButton from './HeaderButton';
 import { BiUserCircle } from 'react-icons/bi';
 import { IoWallet } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -11,7 +12,20 @@ const Header = () => {
                 <div className='flex items-center'>
                     <HeaderButton className='mx-2'></HeaderButton>
                     <label htmlFor="wallet-modal" className='text-primary border-primary border-2 rounded mx-2 px-3 py-2 flex items-center'><IoWallet /> <span className='font-semibold ml-2 hidden md:inline'>Connect Wallet</span></label>
-                    <button className='text-3xl text-gray-500 bg-base-200 p-2 rounded-full'><BiUserCircle /></button>
+                    {/* <button className='text-3xl text-gray-500 bg-base-200 p-2 rounded-full'><BiUserCircle /></button> */}
+
+                    <div className="dropdown dropdown-end">
+                        <label tabIndex={0}><button className='text-3xl text-gray-500 bg-base-200 p-2 rounded-full'><BiUserCircle /></button></label>
+                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded w-52">
+
+                            <li><Link to='/login' className='py-[6px]'>Log In</Link></li>
+                            <li><Link to='/register' className='py-[6px]'>Sign Up</Link></li>
+                            <li><Link to='/faq' className='py-[6px]'>FAQ</Link></li>
+
+
+                        </ul>
+                    </div>
+
                 </div>
             </nav>
         </div>
