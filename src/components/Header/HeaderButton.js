@@ -29,7 +29,7 @@ const HeaderButton = () => {
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded w-52">
 
                     {
-                        items?.map(item => <li onClick={() => handleNavitem(item)}><a className='py-[6px]'><img src={item.img} className='w-3' alt="" /><span>{item.name}</span></a></li>)
+                        items?.map((item, idx) => <li key={idx} onClick={() => handleNavitem(item)}><a className='py-[6px]'><img src={item.img} className='w-3' alt="" /><span>{item.name}</span></a></li>)
                     }
 
 

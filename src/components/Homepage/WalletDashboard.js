@@ -1,15 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiFillWarning } from 'react-icons/ai'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const WalletDashboard = () => {
     const { selectedNav } = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
+    const [verified, setVerified] = useState(false)
 
 
     const handleAction = (data) => {
         console.log(data)
+    }
+
+    const handleCaptcha = (value) => {
+        setVerified(true)
+        console.log(value)
     }
     return (
         <div>
@@ -23,7 +30,13 @@ const WalletDashboard = () => {
                     <input type="text" className='border px-2 py-1 mt-1 w-full rounded-sm bg-gray-100' defaultValue='20 Test Link' />
                     <input type="text" className='border px-2 py-1 mt-1 w-full rounded-sm bg-gray-100' defaultValue='0.5 ETH' />
                 </div>
-                <input type="submit" value="Send Request" className='px-3 py-2 bg-primary text-white font-bold rounded-sm mt-3' />
+                <div className='mt-3'>
+                    <ReCAPTCHA
+                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        onChange={handleCaptcha}
+                    />
+                </div>
+                <input type="submit" value="Send Request" className='px-3 py-2 bg-primary text-white font-bold rounded-sm mt-3' disabled={!verified} />
             </form>
         </div>
     );
