@@ -21,8 +21,8 @@ const Register = () => {
                     <input type="submit" className='bg-primary text-white font-bold py-2 my-3 w-full rounded-sm' value="Sign Up" />
                 </form>
                 <p className='text-center text-xs font-bold my-2'>Don't have an account? <Link to='/register' className='text-primary'>Login</Link></p>
-                <p className='text-xl font-semibold text-center my-2'>Or</p>
-                <div className='grid grid-cols-3 gap-4 w-fit mx-auto text-2xl mb-4'>
+                <p className='text-base font-semibold text-center my-4'>Or</p>
+                <div className='grid grid-cols-3 gap-4 w-fit mx-auto text-2xl mt-2 mb-4'>
                     <AiOutlineGoogle />
                     <FaFacebook />
                     <AiOutlineInstagram />
