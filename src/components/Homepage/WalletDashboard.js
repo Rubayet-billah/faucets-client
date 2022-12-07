@@ -10,7 +10,7 @@ const WalletDashboard = () => {
 
     }
     return (
-        <div className='bg-white p-5'>
+        <div>
             <p className='md:flex items-center p-2 rounded-sm bg-secondary '><AiFillWarning className='text-xl text-primary mr-1' />  Your wallet is connected to Ethereum Kovan, so you are requesting Ethereum Kovan Link/ETH.</p>
 
             <form onSubmit={handleSubmit(handleAction)} className='my-5 md:max-w-2xl' >
