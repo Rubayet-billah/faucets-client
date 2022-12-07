@@ -25,6 +25,7 @@ const AuthProvider = ({ children }) => {
         setSelectedNav,
         createUser,
         loginUser,
+        logoutUser
     }
     return (
         <AuthContext.Provider value={vaules}>
